@@ -1,13 +1,12 @@
-// app/layout.tsx
-import { fonts } from "./fonts";
 import { Providers } from "./provider";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={fonts.rubik.variable}>
+    <html lang="en">
       <body>
         <Providers>{children}</Providers>
       </body>
