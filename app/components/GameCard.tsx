@@ -5,13 +5,18 @@ import Image from "next/image";
 import { platform } from "os";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
+import getCroppedImageUrl from "../services/images-url";
 interface Props {
   game: Game;
 }
 function GameCard({ game }: Props) {
   return (
     <Card borderRadius={"10px"} overflow={"hidden"}>
-      <img src={game.background_image} className="h-[100px] w-full " alt="" />
+      <img
+        src={getCroppedImageUrl(game.background_image)}
+        className="h-[100px] w-full "
+        alt=""
+      />
       <CardBody>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
         <HStack justifyContent={"space-between"}>
