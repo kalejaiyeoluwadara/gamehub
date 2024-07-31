@@ -1,12 +1,11 @@
 // components/GenreList.tsx
 "use client";
-import React from "react";
 import useGenres from "../hooks/useGenres";
 function GenreList() {
-  const { genres } = useGenres();
+  const { data } = useGenres();
   return (
     <ul>
-      {genres.map((genre, id) => (
+      {data.map((genre, id) => (
         <li key={id}>{genre.name}</li>
       ))}
     </ul>
