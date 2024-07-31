@@ -21,10 +21,12 @@ export interface Game {
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const controller = new AbortController();
     const fetchGames = async () => {
+      setLoading(true);
       try {
         const res = await apiClient.get<FetchGamesResponse>("/games", {
           signal: controller.signal,
@@ -35,12 +37,14 @@ const useGames = () => {
       } catch (err) {
         if (err instanceof CanceledError) return;
         setError((err as Error).message || "An error occurred");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchGames();
     return () => controller.abort();
   }, []);
-  return { games, error };
+  return { games, error, loading };
 };
 export default useGames;
