@@ -4,9 +4,9 @@ import React from "react";
 function ColorModeSwitch() {
   //   const { toggleColorMode, colorMode } = useColorMode();
   return (
-    <HStack>
-      {/* <Text>{colorMode === "dark" ? "Dark Mode" : "Light Mode"}</Text> */}
+    <HStack justifyItems={"center"} alignItems={"center"}>
       <Switch />
+      <Text>Dark Mode</Text>
     </HStack>
   );
 }

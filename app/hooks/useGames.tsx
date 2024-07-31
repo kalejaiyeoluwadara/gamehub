@@ -6,10 +6,16 @@ interface FetchGamesResponse {
   count: number;
   results: Game[];
 }
-
-interface Game {
+export interface Platform {
   id: number;
   name: string;
+  slug: string;
+}
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
 }
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
@@ -22,6 +28,8 @@ const useGames = () => {
         const res = await apiClient.get<FetchGamesResponse>("/games", {
           signal: controller.signal,
         });
+        console.log(res.data);
+
         setGames(res.data.results); // Ensure this matches your API response
       } catch (err) {
         if (err instanceof CanceledError) return;

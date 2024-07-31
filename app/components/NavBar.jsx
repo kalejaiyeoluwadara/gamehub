@@ -5,7 +5,7 @@ import logo from "@/public/assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 function NavBar() {
   return (
-    <HStack>
+    <HStack justifyContent={"space-between"} padding={"10px"}>
       <Image height={60} width={60} src={logo} alt="Logo" />
       <ColorModeSwitch />
     </HStack>
