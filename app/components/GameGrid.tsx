@@ -21,7 +21,7 @@ function GameGrid() {
           lg: 2,
           xl: 3,
         }}
-        spacing={10}
+        spacing={3}
       >
         {loading &&
           skeletons.map((skeleton) => (
