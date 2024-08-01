@@ -6,7 +6,7 @@ function ColorModeSwitch() {
   return (
     <HStack justifyItems={"center"} alignItems={"center"}>
       <Switch />
-      <Text>Dark Mode</Text>
+      <Text whiteSpace={"nowrap"}>Dark Mode</Text>
     </HStack>
   );
 }
