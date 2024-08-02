@@ -9,6 +9,7 @@ import { Genre } from "./hooks/useGenres";
 import PLatformSelector from "./components/PLatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -43,6 +44,7 @@ export default function Home() {
         </GridItem>
       </Show>
       <GridItem area={"main"}>
+        <GameHeading gameQuery={gameQuery} />
         <div
           style={{
             marginBottom: "10px",
