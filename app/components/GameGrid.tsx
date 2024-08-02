@@ -35,7 +35,7 @@ function GameGrid({ gameQuery }: Props) {
             </GameCardContainer>
           ))}
         {data.map((game, id) => (
-          <GameCardContainer>
+          <GameCardContainer key={id}>
             <GameCard key={id} game={game} />
           </GameCardContainer>
         ))}
